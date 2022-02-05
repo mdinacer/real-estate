@@ -55,6 +55,7 @@ export default function Gallery() {
             >
               {HousesList.map((house) => (
                 <GalleryItem
+                  key={house.id}
                   setSelectedHouse={setSelectedHouse}
                   house={house}
                 />

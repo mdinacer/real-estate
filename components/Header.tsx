@@ -3,13 +3,15 @@ import {
   faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
+import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Header() {
   return (
-    <motion.div
+    <motion.nav
       variants={container}
       animate={'show'}
       initial="hidden"
@@ -103,7 +105,7 @@ export default function Header() {
           </motion.li>
         </motion.ul>
       </div>
-    </motion.div>
+    </motion.nav>
   )
 }
 
@@ -116,7 +118,7 @@ const container = {
     transition: {
       x: { delay: 3 },
       duration: 1,
-      stiffness: 10,
+      bounce: 0,
       delay: 0.5,
       stagerChildren: 0.35,
       delayChildren: 2,
@@ -182,3 +184,112 @@ const links = [
   { title: 'About Us', path: '#about' },
   { title: 'Contact', path: '#contact' },
 ]
+
+export function HeaderMini() {
+  const [collapsed, setCollapsed] = useState(true)
+  return (
+    <motion.nav
+      initial={{ height: 'auto' }}
+      animate={{ height: collapsed ? 'auto' : '100vh' }}
+      transition={{
+        stiffness: 100,
+      }}
+      className="fixed flex h-auto w-full flex-col bg-[#04293A] py-2 px-10 text-white drop-shadow-md sm:flex-row"
+    >
+      <div className=" flex-initial">
+        <p className=" font-CinzelDeco text-2xl">Maison</p>
+      </div>
+      <AnimatePresence>
+        <motion.div
+          variants={menuVariants}
+          className="flex flex-auto items-center justify-center self-center"
+        >
+          <motion.ul
+            className={
+              'relative mx-auto  w-auto list-none  flex-col items-center sm:flex-row lg:flex' +
+              (!collapsed ? ' flex' : ' hidden')
+            }
+          >
+            {links.map((link, index) => (
+              <motion.li
+                whileHover={{ scale: 1.5 }}
+                key={index}
+                className=" list-item p-5 px-2 sm:p-0 sm:px-5 "
+              >
+                <Link href={link.path} passHref>
+                  <a className="transition-all duration-200 hover:text-red-500">
+                    <p className="font-Oswald text-4xl uppercase sm:text-base">
+                      {link.title}
+                    </p>
+                  </a>
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
+      </AnimatePresence>
+      <div className=" flex-initial self-center">
+        <motion.ul
+          className={
+            'flex list-none flex-row' + (!collapsed ? ' flex' : ' hidden')
+          }
+          variants={containerIcons}
+        >
+          <motion.li
+            key="1"
+            whileHover={{ scale: 1.4 }}
+            className="h-full w-full px-3 transition-all duration-200 hover:text-red-500"
+            variants={itemIcon}
+          >
+            <Link href={'#'} passHref>
+              <a className=" transition-all duration-200 hover:text-red-500">
+                {''}
+                <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+              </a>
+            </Link>
+          </motion.li>
+          <motion.li
+            whileHover={{ scale: 1.4 }}
+            className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
+            variants={itemIcon}
+          >
+            <Link href={'#'} passHref>
+              <a className="transition-all duration-200 hover:text-red-500">
+                {''}
+                <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
+              </a>
+            </Link>
+          </motion.li>
+          <motion.li
+            whileHover={{ scale: 1.4 }}
+            className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
+            variants={itemIcon}
+          >
+            <Link href={'#'} passHref>
+              <a className="transition-all duration-200 hover:text-red-500">
+                {''}
+                <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
+              </a>
+            </Link>
+          </motion.li>
+        </motion.ul>
+      </div>
+
+      <div className=" absolute top-0 right-0 p-4 lg:hidden">
+        <button
+          onClick={() => setCollapsed((prev) => !prev)}
+          type="button"
+          title="menu"
+        >
+          <FontAwesomeIcon icon={faBars} className="h-5 w-5" />
+        </button>
+      </div>
+    </motion.nav>
+  )
+}
+
+const menuVariants = {
+  hidden: { opacity: 1, y: -200 },
+  show: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -200 },
+}

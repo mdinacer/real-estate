@@ -35,9 +35,8 @@ export default function GalleryItem({ setSelectedHouse, house }: Props) {
       <motion.div
         onClick={() => setSelectedHouse(house)}
         layoutId={house.title}
-        key={house.id}
         variants={item}
-        className="relative h-[60vh] w-[90vw] overflow-hidden sm:mx-5 md:w-[40vw] lg:h-[60vh] lg:w-[25vw] "
+        className="relative h-[60vh] w-[90vw] select-none overflow-hidden sm:mx-5 md:w-[40vw] lg:h-[60vh] lg:w-[25vw]"
       >
         <div className="absolute top-0  right-0 h-[100%] w-[90%] overflow-hidden rounded-md">
           <motion.div
