@@ -201,7 +201,6 @@ const links = [
 export function HeaderMini() {
   const [collapsed, setCollapsed] = useState(true)
   const { scrollYProgress } = useViewportScroll()
-  const opac = useTransform(scrollYProgress, [0.8, 1], [1, 0.2])
   return (
     <motion.nav
       initial={{ height: 'auto' }}

@@ -18,8 +18,19 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>"Maison, Real estate agency</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href={'/site.webmanifest'} />
+        <meta property="og:title" content="Maison, Real estate agency" />
+        <meta
+          property="og:description"
+          content="Maison, Real estate agency landing page"
+        />
+        <meta
+          property="og:image"
+          content="
+          /preview.jpg"
+        />
       </Head>
 
       <AnimatePresence>

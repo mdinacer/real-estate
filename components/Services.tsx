@@ -45,7 +45,7 @@ export default function Services() {
                   Assessment and management of real estate
                 </p>
 
-                <p className="pb-10">
+                <p className="sm:pb-10">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Ratione animi excepturi quia accusantium dolorem vel quibusdam
                   eveniet voluptates cupiditate adipisci.
@@ -67,7 +67,7 @@ export default function Services() {
                   laudantium corrupti qui enim nam repellendus reprehenderit
                   impedit modi, error aliquid ipsum eaque alias earum velit!
                 </p>
-                <p className="pb-10">
+                <p className="hidden pb-10 lg:block">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Impedit illo dolorum illum tempora rem soluta ducimus.
                   Molestiae sequi incidunt soluta illo porro doloribus aut
