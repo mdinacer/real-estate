@@ -36,14 +36,27 @@ export default function CarouselCaption({ house, setSelectedHouse }: Props) {
         </div>
       </div>
 
-      <div className="absolute top-0 right-0 p-2">
+      <div className="absolute top-0 right-0 py-5 px-5">
         <button
           type="button"
           title="close"
           className=""
           onClick={() => setSelectedHouse(null)}
         >
-          <FontAwesomeIcon icon={faTimesCircle} size="2x" className="h-6 w-6" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
       </div>
     </div>

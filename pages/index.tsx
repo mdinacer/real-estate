@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Head from 'next/head'
 import { useInView } from 'react-intersection-observer'
+import About from '../components/About'
+import Contact from '../components/Contact'
 import Gallery from '../components/Gallery'
 import Header, { HeaderMini } from '../components/Header'
 import Hero from '../components/Hero'
@@ -22,15 +24,25 @@ export default function Home() {
 
       <AnimatePresence>
         <motion.main
+          id="home"
           className=""
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 1 } }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 2 }}
         >
           <Hero />
         </motion.main>
       </AnimatePresence>
+      <video
+        src="/assets/videos/hero.mp4"
+        autoPlay
+        muted
+        preload="lazy"
+        loop
+        playsInline
+        className="fixed top-0 left-0 z-[-10] h-screen w-full object-cover object-center"
+      ></video>
       <motion.div
         variants={container}
         initial="hidden"
@@ -49,7 +61,8 @@ export default function Home() {
 
         <Services />
         <Gallery />
-        <div className=" h-screen w-full bg-slate-600"></div>
+        <About />
+        <Contact />
       </motion.div>
 
       <footer className=""></footer>

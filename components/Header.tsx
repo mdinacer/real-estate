@@ -3,9 +3,13 @@ import {
   faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { AnimatePresence, motion } from 'framer-motion'
+import {
+  AnimatePresence,
+  motion,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -15,9 +19,17 @@ export default function Header() {
       variants={container}
       animate={'show'}
       initial="hidden"
-      className="absolute flex h-[50vh] w-full flex-col bg-[#04293A] text-white drop-shadow-md"
+      className="absolute flex h-[50vh] w-full flex-col overflow-hidden bg-[#04293A] text-white drop-shadow-md"
     >
-      <div className="  flex h-full w-full flex-auto items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 3, duration: 3 }}
+        className={
+          'absolute top-0 left-0 hidden h-full w-full bg-[url("/assets/images/backgrounds/bg.png")] bg-contain bg-top bg-no-repeat mix-blend-multiply lg:block'
+        }
+      ></motion.div>
+      <div className="relative flex h-full w-full flex-auto items-center justify-center">
         <motion.div
           variants={item}
           key="logo"
@@ -40,10 +52,10 @@ export default function Header() {
           </p>
         </motion.div>
       </div>
-      <div className="  flex h-auto w-full flex-initial items-end justify-between px-5 py-5">
+      <div className="absolute bottom-0 left-0 flex h-auto w-full flex-initial items-end justify-between px-5 py-5">
         <motion.ul
           variants={containerIcons}
-          className="juse flex list-none flex-row items-center font-Oswald text-base uppercase"
+          className="mx-auto flex list-none flex-row items-center font-Oswald text-base uppercase sm:ml-0"
         >
           {links.map((link, index) => (
             <motion.li
@@ -69,11 +81,11 @@ export default function Header() {
           <motion.li
             key="1"
             whileHover={{ scale: 1.4 }}
-            className="h-full w-full px-3 transition-all duration-200 hover:text-red-500"
+            className="h-full w-full px-3 transition-all duration-200 hover:text-[#4267B2]"
             variants={itemIcon}
           >
             <Link href={'#'} passHref>
-              <a className=" transition-all duration-200 hover:text-red-500">
+              <a className=" transition-all duration-200">
                 {''}
                 <FontAwesomeIcon icon={faFacebook} className="h-8 w-8" />
               </a>
@@ -81,11 +93,11 @@ export default function Header() {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.4 }}
-            className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
+            className="h-auto w-auto px-3 transition-all duration-200 hover:text-[#0077B5]"
             variants={itemIcon}
           >
             <Link href={'#'} passHref>
-              <a className="transition-all duration-200 hover:text-red-500">
+              <a className="transition-all duration-200 ">
                 {''}
                 <FontAwesomeIcon icon={faLinkedin} className="h-8 w-8" />
               </a>
@@ -93,11 +105,11 @@ export default function Header() {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.4 }}
-            className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
+            className="h-auto w-auto px-3 transition-all duration-200  hover:text-[#e95950]"
             variants={itemIcon}
           >
             <Link href={'#'} passHref>
-              <a className="transition-all duration-200 hover:text-red-500">
+              <a className="transition-all duration-200">
                 {''}
                 <FontAwesomeIcon icon={faInstagram} className="h-8 w-8" />
               </a>
@@ -179,14 +191,17 @@ const itemIcon = {
 }
 
 const links = [
-  { title: 'Home', path: '#' },
-  { title: 'Projects', path: '#projects' },
-  { title: 'About Us', path: '#about' },
+  { title: 'Home', path: '#home' },
+  { title: 'Services', path: '#services' },
+  { title: 'Houses', path: '#gallery' },
+  { title: 'Our team', path: '#about' },
   { title: 'Contact', path: '#contact' },
 ]
 
 export function HeaderMini() {
   const [collapsed, setCollapsed] = useState(true)
+  const { scrollYProgress } = useViewportScroll()
+  const opac = useTransform(scrollYProgress, [0.8, 1], [1, 0.2])
   return (
     <motion.nav
       initial={{ height: 'auto' }}
@@ -194,7 +209,7 @@ export function HeaderMini() {
       transition={{
         stiffness: 100,
       }}
-      className="fixed flex h-auto w-full flex-col bg-[#04293A] py-2 px-10 text-white drop-shadow-md sm:flex-row"
+      className="fixed flex h-auto w-full select-none flex-col bg-[#04293A] py-2 px-10 text-white drop-shadow-md sm:flex-row"
     >
       <div className=" flex-initial">
         <p className=" font-CinzelDeco text-2xl">Maison</p>
@@ -202,7 +217,7 @@ export function HeaderMini() {
       <AnimatePresence>
         <motion.div
           variants={menuVariants}
-          className="flex flex-auto items-center justify-center self-center"
+          className=" flex flex-auto items-center justify-center self-center"
         >
           <motion.ul
             className={
@@ -281,7 +296,20 @@ export function HeaderMini() {
           type="button"
           title="menu"
         >
-          <FontAwesomeIcon icon={faBars} className="h-5 w-5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
         </button>
       </div>
     </motion.nav>

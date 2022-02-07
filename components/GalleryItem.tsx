@@ -29,31 +29,34 @@ const item = {
 
 export default function GalleryItem({ setSelectedHouse, house }: Props) {
   const { scrollYProgress } = useViewportScroll()
-  const yPos = useTransform(scrollYProgress, [0.5, 0.8], [0, 350])
+  const yPos = useTransform(scrollYProgress, [0.3, 0.8], [0, 350])
   return (
     <AnimatePresence>
       <motion.div
         onClick={() => setSelectedHouse(house)}
         layoutId={house.title}
         variants={item}
-        className="relative h-[60vh] w-[90vw] select-none overflow-hidden sm:mx-5 md:w-[40vw] lg:h-[60vh] lg:w-[25vw]"
+        className=" relative h-[60vh] w-[90vw] cursor-pointer select-none overflow-hidden sm:mx-5 md:w-[40vw] lg:h-[60vh] lg:w-[25vw]"
       >
-        <div className="absolute top-0  right-0 h-[100%] w-[90%] overflow-hidden rounded-md">
+        <div className="relative top-0 right-0 h-[100%] w-full overflow-hidden  rounded-md sm:w-[90%] sm:translate-x-[10%]">
           <motion.div
-            whileInView={{ scale: 1.1 }}
+            initial={{ scale: 1.2 }}
+            whileInView={{ scale: 1 }}
             transition={{
               duration: 1,
               delay: 1.5,
               ease: [0.6, 0.01, -0.05, 0.5],
             }}
             style={{}}
-            className={`h-full w-full`}
+            className={`relative h-full w-full translate-x-[10%]`}
           >
             <Image
               src={`/assets/images/${house.image}`}
               layout="fill"
               objectFit="cover"
               objectPosition={'center'}
+              placeholder="blur"
+              blurDataURL={`/assets/images/${house.image}`}
             />
           </motion.div>
         </div>
@@ -67,13 +70,21 @@ export default function GalleryItem({ setSelectedHouse, house }: Props) {
           }}
           className="absolute top-[10%] left-0 flex h-[20%]  w-[90%] items-center justify-start bg-white py-2 px-4 drop-shadow-md"
         >
-          <div className="">
-            <p className=" font-Oswald text-5xl font-thin leading-normal">
+          <div className="w-full">
+            <p className=" font-Oswald text-4xl font-thin leading-normal">
               {house.title}
             </p>
-            <p className=" font-Montserrat text-base font-thin ">
-              {house.address} - {house.surface} - {house.price}
+            <p className=" font-Montserrat text-base font-normal ">
+              {house.address}
             </p>
+            <div className="  flex w-full flex-row items-center justify-evenly">
+              <p className=" font-Montserrat text-base font-thin ">
+                {house.surface}
+              </p>
+              <p className=" font-Montserrat text-base font-thin ">
+                {house.price}
+              </p>
+            </div>
           </div>
         </motion.div>
       </motion.div>

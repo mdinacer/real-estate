@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Carousel() {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -25,16 +25,22 @@ export default function Carousel() {
     } else {
       setSelectedIndex((prev) => prev - 1)
     }
-    console.log(`image${selectedIndex + 1}.jpg`)
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleNext()
+    }, 4000)
+    return () => clearTimeout(timer)
+  }, [handleNext])
   return (
     <div className="relative h-1/2 w-full translate-x-0 overflow-hidden rounded-md bg-black sm:h-full sm:w-[90%] sm:translate-x-[10%]">
       <AnimatePresence>
         <motion.div
           key={selectedIndex}
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1, transition: { duration: 0.2, delay: 0.2 } }}
-          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1.5, delay: 0.5 } }}
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
           whileHover={{ scale: 1.1 }}
           transition={{
             duration: 0.5,
@@ -58,7 +64,7 @@ export default function Carousel() {
           whileHover={'hover'}
           type="button"
           title="previous"
-          className="rounded-r-2xl bg-black bg-opacity-40 p-5"
+          className="rounded-r-2xl bg-black bg-opacity-40 p-5 backdrop-blur-md"
         >
           <FontAwesomeIcon icon={faChevronLeft} className=" h-8 w-8" />
         </motion.button>
@@ -69,7 +75,7 @@ export default function Carousel() {
           whileHover={'hover'}
           type="button"
           title="next"
-          className="rounded-l-2xl bg-black bg-opacity-40 p-5"
+          className="rounded-l-2xl bg-black bg-opacity-40 p-5 backdrop-blur-md"
         >
           <FontAwesomeIcon icon={faChevronRight} className=" h-8 w-8" />
         </motion.button>
@@ -85,5 +91,8 @@ const buttonVariants = {
 
   hover: {
     opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
   },
 }
