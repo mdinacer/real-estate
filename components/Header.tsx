@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AnimatePresence, motion, useViewportScroll } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
+import { socialLinks } from '../data/socialLinks'
 
 export default function Header() {
   return (
@@ -79,8 +80,12 @@ export default function Header() {
             className="h-full w-full px-3 transition-all duration-200 hover:text-[#4267B2]"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className=" transition-all duration-200">
+            <Link href={socialLinks.facebook} passHref>
+              <a
+                className=" transition-all duration-200"
+                target={'_blank'}
+                rel="noreferrer"
+              >
                 {''}
                 <FontAwesomeIcon icon={faFacebook} className="h-8 w-8" />
               </a>
@@ -91,8 +96,12 @@ export default function Header() {
             className="h-auto w-auto px-3 transition-all duration-200 hover:text-[#0077B5]"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className="transition-all duration-200 ">
+            <Link href={socialLinks.linkedIn} passHref>
+              <a
+                target={'_blank'}
+                rel="noreferrer"
+                className="transition-all duration-200 "
+              >
                 {''}
                 <FontAwesomeIcon icon={faLinkedin} className="h-8 w-8" />
               </a>
@@ -103,8 +112,12 @@ export default function Header() {
             className="h-auto w-auto px-3 transition-all duration-200  hover:text-[#e95950]"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className="transition-all duration-200">
+            <Link href={socialLinks.instagram} passHref>
+              <a
+                target={'_blank'}
+                rel="noreferrer"
+                className="transition-all duration-200"
+              >
                 {''}
                 <FontAwesomeIcon icon={faInstagram} className="h-8 w-8" />
               </a>
@@ -250,8 +263,12 @@ export function HeaderMini() {
             className="h-full w-full px-3 transition-all duration-200 hover:text-red-500"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className=" transition-all duration-200 hover:text-red-500">
+            <Link href={socialLinks.facebook} passHref>
+              <a
+                target={'_blank'}
+                rel="noreferrer"
+                className=" transition-all duration-200 hover:text-red-500"
+              >
                 {''}
                 <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
               </a>
@@ -262,8 +279,12 @@ export function HeaderMini() {
             className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className="transition-all duration-200 hover:text-red-500">
+            <Link href={socialLinks.linkedIn} passHref>
+              <a
+                target={'_blank'}
+                rel="noreferrer"
+                className="transition-all duration-200 hover:text-red-500"
+              >
                 {''}
                 <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
               </a>
@@ -274,8 +295,12 @@ export function HeaderMini() {
             className="h-auto w-auto px-3 transition-all duration-200 hover:text-red-500"
             variants={itemIcon}
           >
-            <Link href={'#'} passHref>
-              <a className="transition-all duration-200 hover:text-red-500">
+            <Link href={socialLinks.instagram} passHref>
+              <a
+                target={'_blank'}
+                rel="noreferrer"
+                className="transition-all duration-200 hover:text-red-500"
+              >
                 {''}
                 <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
               </a>

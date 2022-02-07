@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { socialLinks } from '../data/socialLinks'
 
 export default function Contact() {
   return (
@@ -66,8 +67,12 @@ export default function Contact() {
                       whileHover={{ scale: 1.4 }}
                       className="h-full w-full px-3 transition-all duration-200 hover:text-[#4267B2] "
                     >
-                      <Link href={'#'} passHref>
-                        <a className=" transition-all duration-200 ">
+                      <Link href={socialLinks.facebook} passHref>
+                        <a
+                          target={'_blank'}
+                          rel="noreferrer"
+                          className=" transition-all duration-200 "
+                        >
                           {''}
                           <FontAwesomeIcon
                             icon={faFacebook}
@@ -80,8 +85,12 @@ export default function Contact() {
                       whileHover={{ scale: 1.4 }}
                       className="h-auto w-auto px-3 transition-all duration-200 hover:text-[#0077B5]"
                     >
-                      <Link href={'#'} passHref>
-                        <a className="transition-all duration-200 ">
+                      <Link href={socialLinks.linkedIn} passHref>
+                        <a
+                          target={'_blank'}
+                          rel="noreferrer"
+                          className="transition-all duration-200 "
+                        >
                           {''}
                           <FontAwesomeIcon
                             icon={faLinkedin}
@@ -94,8 +103,12 @@ export default function Contact() {
                       whileHover={{ scale: 1.4 }}
                       className="h-auto w-auto px-3 transition-all duration-200 hover:text-[#e95950]"
                     >
-                      <Link href={'#'} passHref>
-                        <a className="transition-all duration-200">
+                      <Link href={socialLinks.instagram} passHref>
+                        <a
+                          target={'_blank'}
+                          rel="noreferrer"
+                          className="transition-all duration-200"
+                        >
                           {''}
                           <FontAwesomeIcon
                             icon={faInstagram}
