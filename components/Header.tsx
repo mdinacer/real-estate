@@ -4,12 +4,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  AnimatePresence,
-  motion,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion'
+import { AnimatePresence, motion, useViewportScroll } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -128,7 +123,7 @@ const container = {
   show: {
     y: 0,
     transition: {
-      x: { delay: 3 },
+      y: { duration: 1 },
       duration: 1,
       bounce: 0,
       delay: 0.5,
