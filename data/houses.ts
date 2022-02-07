@@ -7,7 +7,7 @@ export const HousesList = [
         surface: "3,461 sqft",
         address: "Forest Hills",
         description: "Location, Space & Possibilities! This large home is ready for its next owner to finish the space as they see fit! The main level provides tons of living space and room to spread out! Inside the front door you are greeted by an entryway that flows into the living area.",
-        image: "image1.jpeg"
+        image: "image1.webp"
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ export const HousesList = [
         surface: "2792 sqft",
         address: "Fennville, MI",
         description: "Welcome Home! Custom built gorgeous home in Forest Hills Schools! Convenient to everything. With 5 bedrooms and 3 full bathrooms, you just need to bring your tooth brush! Inside you walk into the living space, complete with vaulted ceilings and a beautiful fireplace.",
-        image: "image2.jpeg"
+        image: "image2.webp"
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ export const HousesList = [
         surface: "3,461 sqft",
         address: "Forest Hills",
         description: "Location, Space & Possibilities! This large home is ready for its next owner to finish the space as they see fit! The main level provides tons of living space and room to spread out! Inside the front door you are greeted by an entryway that flows into the living area. ",
-        image: "image3.jpeg"
+        image: "image3.webp"
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ export const HousesList = [
         surface: "3,461 sqft",
         address: "Forest Hills",
         description: "Location, Space & Possibilities! This large home is ready for its next owner to finish the space as they see fit! The main level provides tons of living space and room to spread out! Inside the front door you are greeted by an entryway that flows into the living area. ",
-        image: "image4.jpeg"
+        image: "image4.webp"
     },
     {
         id: 5,
@@ -47,7 +47,7 @@ export const HousesList = [
         surface: "3,461 sqft",
         address: "Forest Hills",
         description: "Location, Space & Possibilities! This large home is ready for its next owner to finish the space as they see fit! The main level provides tons of living space and room to spread out! Inside the front door you are greeted by an entryway that flows into the living area. ",
-        image: "image5.jpeg"
+        image: "image5.webp"
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ export const HousesList = [
         surface: "3,461 sqft",
         address: "Forest Hills",
         description: "Location, Space & Possibilities! This large home is ready for its next owner to finish the space as they see fit! The main level provides tons of living space and room to spread out! Inside the front door you are greeted by an entryway that flows into the living area. ",
-        image: "image6.jpeg"
+        image: "image6.webp"
     },
 ]
 

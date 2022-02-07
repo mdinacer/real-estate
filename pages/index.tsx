@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>"Maison, Real estate agency</title>
+        <title>Maison, Real estate agency</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href={'/site.webmanifest'} />
         <meta property="og:title" content="Maison, Real estate agency" />

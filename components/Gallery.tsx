@@ -50,7 +50,7 @@ export default function Gallery() {
           className={`relative h-full min-h-screen w-full overflow-hidden bg-[#04293A] pb-20`}
         >
           <div
-            className={`absolute top-0 h-full w-full bg-[url('/assets/images/image7.jpeg')] bg-cover bg-fixed bg-center mix-blend-overlay`}
+            className={`absolute top-0 h-full w-full bg-[url('/assets/images/image7.webp')] bg-cover bg-fixed bg-center mix-blend-overlay`}
           />
           <div className=" flex w-full items-center justify-center py-20">
             <h1 className=" flex flex-col  text-white">

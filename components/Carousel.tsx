@@ -49,7 +49,7 @@ export default function Carousel() {
           className="relative h-full w-full"
         >
           <Image
-            src={`/assets/images/carousel/image${selectedIndex + 1}.jpg`}
+            src={`/assets/images/carousel/image${selectedIndex + 1}.webp`}
             layout="fill"
             objectFit="cover"
             objectPosition={'center'}

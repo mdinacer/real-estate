@@ -21,7 +21,7 @@ export default function Header() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 3, duration: 3 }}
         className={
-          'absolute top-0 left-0 hidden h-full w-full bg-[url("/assets/images/backgrounds/bg.png")] bg-contain bg-top bg-no-repeat mix-blend-multiply lg:block'
+          'absolute top-0 left-0 hidden h-full w-full bg-[url("/assets/images/backgrounds/bg.webp")] bg-contain bg-top bg-no-repeat mix-blend-multiply lg:block'
         }
       ></motion.div>
       <div className="relative flex h-full w-full flex-auto items-center justify-center">

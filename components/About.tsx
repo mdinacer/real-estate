@@ -58,7 +58,7 @@ export default function About() {
                         alt={member.name}
                       />
                     </div>
-                    <p className=" absolute bottom-1/2 left-0 bg-[#04293A] text-white sm:text-black sm:bg-[white] px-10 py-2 font-Oswald text-2xl sm:bottom-0   sm:px-5  sm:py-1 ">
+                    <p className=" absolute bottom-1/2 left-0 bg-[#04293A] px-10 py-2 font-Oswald text-2xl text-white sm:bottom-0 sm:bg-[white] sm:px-5   sm:py-1  sm:text-black ">
                       {member.name}
                     </p>
                   </div>
@@ -106,21 +106,21 @@ const teamMembers = [
     name: 'Lucas Forward',
     title: 'Chief Executive Officer',
     shortBio: '',
-    image: 'member1.jpeg',
+    image: 'member1.webp',
   },
   {
     id: 2,
     name: 'Rebecca Forward',
     title: 'Buyers Specialist',
     shortBio: '',
-    image: 'member2.jpeg',
+    image: 'member2.webp',
   },
   {
     id: 3,
     name: 'Rick Trico',
     title: 'Lead Buyers Specialist',
     shortBio: '',
-    image: 'member3.jpeg',
+    image: 'member3.webp',
   },
 
   {
@@ -128,6 +128,6 @@ const teamMembers = [
     name: 'Charl Menkies',
     title: 'Associate Agent',
     shortBio: '',
-    image: 'member4.jpg',
+    image: 'member4.webp',
   },
 ]
