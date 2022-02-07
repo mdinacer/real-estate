@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="relative h-screen w-full overflow-hidden bg-[#04293A] py-28"
+      className="relative h-full min-h-screen w-full overflow-hidden bg-[#04293A] py-28"
     >
       <div className='absolute top-0 left-0 h-full w-full bg-[url("/assets/images/backgrounds/bg.webp")] bg-contain bg-center bg-no-repeat opacity-100 mix-blend-multiply' />
 
