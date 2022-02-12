@@ -239,7 +239,10 @@ export function HeaderMini() {
                 className=" list-item p-5 px-2 sm:p-0 sm:px-5 "
               >
                 <Link href={link.path} passHref>
-                  <a className="transition-all duration-200 hover:text-red-500">
+                  <a
+                    className="transition-all duration-200 hover:text-red-500"
+                    onClick={() => setCollapsed(true)}
+                  >
                     <p className="font-Oswald text-4xl uppercase sm:text-base">
                       {link.title}
                     </p>
