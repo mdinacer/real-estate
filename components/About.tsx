@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="relative h-full min-h-screen w-full overflow-hidden bg-[#000] bg-opacity-50 py-28 backdrop-blur-sm"
+      className="backdrop-blur-s relative h-full min-h-screen w-full overflow-hidden bg-[#000] bg-opacity-50 py-28"
     >
       <div className="flex h-full w-full items-center justify-center pb-10">
         <div className="flex flex-col items-center justify-center">
